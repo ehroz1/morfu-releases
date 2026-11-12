@@ -1,0 +1,39 @@
+# При публикации релиза добавляет копии установщиков без версии в имени (ссылки latest/download не устаревают):
+#   Morfu.zip
+# Файлы с версией не меняются: их использует автообновление. Вручную: Actions → Stable names → Run workflow → тег.
+name: Stable names
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Тег релиза, например v3.3
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  alias:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add unversioned copies
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: |
+          set -euo pipefail
+          VER="${TAG#v}"
+          mkdir assets && cd assets
+          # «исходное имя (VER — версия)=новое имя»
+          while IFS='=' read -r src dst; do
+            [ -z "$src" ] && continue
+            src="${src//VER/$VER}"
+            gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p "$src" -O "$dst"
+          done <<'MAP'
+          Morfu-VER.zip=Morfu.zip
+          MAP
+          ls -l
+          gh release upload "$TAG" -R "$GITHUB_REPOSITORY" --clobber *
