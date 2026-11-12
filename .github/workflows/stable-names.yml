@@ -1,5 +1,5 @@
 # При публикации релиза добавляет копии установщиков без версии в имени (ссылки latest/download не устаревают):
-#   Morfu.zip
+#   Morfu.zip, Morfu.dmg
 # Файлы с версией не меняются: их использует автообновление. Вручную: Actions → Stable names → Run workflow → тег.
 name: Stable names
 
@@ -34,6 +34,7 @@ jobs:
             gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p "$src" -O "$dst"
           done <<'MAP'
           Morfu-VER.zip=Morfu.zip
+          Morfu-VER.dmg=Morfu.dmg
           MAP
           ls -l
           gh release upload "$TAG" -R "$GITHUB_REPOSITORY" --clobber *
