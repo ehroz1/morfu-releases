@@ -9,11 +9,11 @@
 
 ## Что умеет
 
-**Видео** — MP4 (H.264 / H.265), MOV, MKV, WebM, AVI, GIF, звук в MP3 / M4A / WAV. Кодирование на Media Engine Apple Silicon — быстро и тихо.
-**Фото** — JPG, PNG, HEIC, WebP, AVIF, TIFF; «тот же формат, но легче»; несколько фото → один PDF.
-**PDF** — сжатие (текст остаётся текстом), в JPG / PNG / SVG постранично, склейка, страницы.
-**Вектор** — SVG в PNG / PDF, EPS и Illustrator в SVG / PDF / PNG, растр → SVG.
-**Документы** — DOCX, RTF, ODT, HTML, Markdown → PDF. **Речь** — расшифровка в текст и субтитры, без интернета.
+- **Видео** — MP4 (H.264 / H.265), MOV, MKV, WebM, AVI, GIF, звук в MP3 / M4A / WAV. Кодирование на Media Engine Apple Silicon — быстро и тихо.
+- **Фото** — JPG, PNG, HEIC, WebP, AVIF, TIFF; «тот же формат, но легче»; несколько фото → один PDF.
+- **PDF** — сжатие (текст остаётся текстом), в JPG / PNG / SVG постранично, склейка, страницы.
+- **Вектор** — SVG в PNG / PDF, EPS и Illustrator в SVG / PDF / PNG, растр → SVG.
+- **Документы** — DOCX, RTF, ODT, HTML, Markdown → PDF. **Речь** — расшифровка в текст и субтитры, без интернета.
 
 Всё работает **на вашем Mac**: файлы никуда не загружаются.
 
